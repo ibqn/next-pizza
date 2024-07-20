@@ -1,8 +1,25 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Bangers, Quicksand, Roboto_Condensed } from "next/font/google"
 import "./globals.css"
+import { cn } from "@/utils/class-names"
+import { Providers } from "@/lib/providers"
 
-const inter = Inter({ subsets: ["latin"] })
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  variable: "--font-quicksand",
+})
+
+const bangers = Bangers({
+  subsets: ["latin"],
+  variable: "--font-bangers",
+  weight: ["400"],
+})
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ["latin"],
+  variable: "--font-roboto-condensed",
+  weight: ["300", "400", "700"],
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +33,18 @@ type Props = Readonly<{
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          quicksand.variable,
+          bangers.variable,
+          robotoCondensed.variable
+        )}
+      >
+        <h1 className="font-bangers">heading 1</h1>
+        <h1 className="font-quicksand">heading 2</h1>
+        <h1 className="font-roboto-condensed">heading 3</h1>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
