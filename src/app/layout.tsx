@@ -40,9 +40,6 @@ export default function RootLayout({ children }: Props) {
           robotoCondensed.variable
         )}
       >
-        <h1 className="font-bangers">heading 1</h1>
-        <h1 className="font-quicksand">heading 2</h1>
-        <h1 className="font-roboto-condensed">heading 3</h1>
         <Providers>{children}</Providers>
       </body>
     </html>

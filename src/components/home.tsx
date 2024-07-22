@@ -17,12 +17,14 @@ export const Home = (props: Props) => {
   })
 
   return (
-    <main>
+    <section>
       <div className="container mx-auto">
-        {pizzas.map((pizza) => (
-          <Pizza key={pizza.id} pizza={pizza} />
-        ))}
+        <div className="grid grid-cols-2 gap-[15px] py-12 md:grid-cols-3 xl:grid-cols-4 xl:gap-[30px]">
+          {pizzas.map((pizza) => (
+            <Pizza key={pizza.id} pizza={pizza} />
+          ))}
+        </div>
       </div>
-    </main>
+    </section>
   )
 }
