@@ -12,6 +12,7 @@ import {
 } from "@/components/dialog"
 import { useState } from "react"
 import { PizzaDetails } from "@/components/pizza-details"
+import { VisuallyHidden } from "@/components/visually-hidden"
 
 type Props = {
   pizza: PizzaType
@@ -59,13 +60,12 @@ export const Pizza = ({ pizza }: Props) => {
           starts at {pizza.priceSm}
         </button>
         <Dialog open={isOpen} onOpenChange={(event) => setIsOpen(event)}>
-          <DialogContent className="h-full w-full bg-pink-200 lg:max-h-[600px] lg:max-w-[900px] lg:rounded-[30px]">
+          <DialogContent className="h-full w-full lg:max-h-[600px] lg:max-w-[900px] lg:rounded-[30px]">
             <DialogHeader>
-              <DialogTitle>Are you absolutely sure?</DialogTitle>
-              <DialogDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
-              </DialogDescription>
+              <DialogTitle>Choose your pizza</DialogTitle>
+              <VisuallyHidden asChild>
+                <DialogDescription>Choose your pizza flavour</DialogDescription>
+              </VisuallyHidden>
             </DialogHeader>
             <PizzaDetails pizza={pizza} />
           </DialogContent>
