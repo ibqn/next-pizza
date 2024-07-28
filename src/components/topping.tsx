@@ -1,5 +1,9 @@
-type Props = {}
+import { ToppingType } from "@/types"
 
-const Topping = (props: Props) => {
-  return <div>Topping</div>
+type Props = {
+  topping: ToppingType
+}
+
+export const Topping = ({ topping }: Props) => {
+  return <div>{topping.name}</div>
 }
