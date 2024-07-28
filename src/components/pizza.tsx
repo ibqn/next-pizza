@@ -11,6 +11,7 @@ import {
   DialogTitle,
 } from "@/components/dialog"
 import { useState } from "react"
+import { PizzaDetails } from "@/components/pizza-details"
 
 type Props = {
   pizza: PizzaType
@@ -58,7 +59,7 @@ export const Pizza = ({ pizza }: Props) => {
           starts at {pizza.priceSm}
         </button>
         <Dialog open={isOpen} onOpenChange={(event) => setIsOpen(event)}>
-          <DialogContent className="h-full w-full bg-pink-200 lg:max-h-[600px] lg:max-w-[900px]">
+          <DialogContent className="h-full w-full bg-pink-200 lg:max-h-[600px] lg:max-w-[900px] lg:rounded-[30px]">
             <DialogHeader>
               <DialogTitle>Are you absolutely sure?</DialogTitle>
               <DialogDescription>
@@ -66,6 +67,7 @@ export const Pizza = ({ pizza }: Props) => {
                 account and remove your data from our servers.
               </DialogDescription>
             </DialogHeader>
+            <PizzaDetails pizza={pizza} />
           </DialogContent>
         </Dialog>
       </div>

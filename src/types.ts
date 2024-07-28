@@ -14,3 +14,11 @@ export type ToppingType = {
   name: string
   price: number
 }
+
+export const PizzaSizeType = {
+  small: "small",
+  medium: "medium",
+  large: "large",
+} as const
+
+export type PizzaSizeType = (typeof PizzaSizeType)[keyof typeof PizzaSizeType]
