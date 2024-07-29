@@ -20,7 +20,7 @@ export const SizeSelection = ({ pizza, size, setSize }: Props) => {
             <label
               key={index}
               htmlFor={`${sizeValue}`}
-              className="flex cursor-pointer flex-col items-center gap-x-2"
+              className="flex cursor-pointer flex-col items-center gap-2"
             >
               <Image
                 src={pizza.image}
