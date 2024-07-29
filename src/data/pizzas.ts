@@ -276,7 +276,7 @@ export const pizzas = [
       {
         image: "/corn.png",
         name: "corn",
-        price: 2,
+        price: 1,
       },
       {
         image: "/fresh-tomatoes.png",
@@ -291,7 +291,7 @@ export const pizzas = [
       {
         image: "/parmesan.png",
         name: "parmesan",
-        price: 2,
+        price: 1,
       },
     ],
   },
