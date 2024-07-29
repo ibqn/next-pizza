@@ -5,9 +5,9 @@ import { transformSizeToPrice } from "@/utils/size-to-price"
 import { transformSizeToText } from "@/utils/size-to-text"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { SizeSelection } from "./size-selection"
-import { CrustSelection } from "./crust-selection"
-import { Topping } from "./topping"
+import { SizeSelection } from "@/components/size-selection"
+import { CrustSelection } from "@/components/crust-selection"
+import { Topping } from "@/components/topping"
 
 type Props = {
   pizza: PizzaType
@@ -36,7 +36,7 @@ export const PizzaDetails = ({ pizza }: Props) => {
   }, [additionalToppings])
 
   return (
-    <div className="flex h-full flex-col md:p-8 lg:flex-row lg:gap-x-8">
+    <div className="flex h-full flex-col lg:flex-row lg:gap-x-8">
       <div className="flex items-center justify-center lg:flex-1">
         <div className="mt-6 max-w-[300px] lg:mt-0 lg:max-w-none">
           <Image
@@ -64,12 +64,20 @@ export const PizzaDetails = ({ pizza }: Props) => {
             </div>
 
             <SizeSelection pizza={pizza} size={size} setSize={setSize} />
-            <CrustSelection />
-            <div>Choose topping</div>
+            <CrustSelection crust={crust} setCrust={setCrust} />
 
-            <div>
+            <div className="mb-4 text-xl font-semibold">Choose topping</div>
+
+            <div className="flex flex-1 flex-wrap justify-center gap-2 py-1 lg:justify-start">
               {pizza.toppings.map((topping, index) => {
-                return <Topping key={index} topping={topping} />
+                return (
+                  <Topping
+                    key={index}
+                    topping={topping}
+                    additionalToppings={additionalToppings}
+                    setAdditionalToppings={setAdditionalToppings}
+                  />
+                )
               })}
             </div>
           </div>

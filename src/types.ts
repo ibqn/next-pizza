@@ -26,7 +26,6 @@ export type PizzaSizeType = (typeof PizzaSizeType)[keyof typeof PizzaSizeType]
 export const CrustType = {
   traditional: "traditional",
   thin: "thin",
-  thick: "thick",
 } as const
 
 export type CrustType = (typeof CrustType)[keyof typeof CrustType]
